@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="file.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="game">
+        <canvas id="mainCanvas" width="1200" height="650"></canvas>
+        <canvas id="shipCanvas" width="1200" height="650"></canvas>
+        <canvas id="boomCanvas" width="1200" height="650"></canvas>
+
+    </div>
+
+    <img id="sky" src="stars.jpg" alt="">
+    <img id ="ship" src="ship.png" alt="">
+    <img id ="boo" src="boo.png" alt="">
+
+    <script>
+        window.onload = function() {
+            var game = createGame();
+            game.start();
+        };
+    </script>
+</body>
+</html>
