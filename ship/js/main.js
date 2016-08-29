@@ -7,13 +7,13 @@ window.addEventListener('load', function () {
 
     var playerCanvas = document.getElementById('player-canvas'),
         playerContext = playerCanvas.getContext('2d'),
-        backgroundCanvas = document.getElementById('background-canvas'),
-        backgroundContext = backgroundCanvas.getContext('2d'),
+        //backgroundCanvas = document.getElementById('background-canvas'),
+        //backgroundContext = backgroundCanvas.getContext('2d'),
         playerImg = document.getElementById('pikachu-sprite'),
-        bulletImg = document.getElementById('bullet'),
-        backgr = document.getElementById('sky');
+        bulletImg = document.getElementById('bullet');
+        //backgr = document.getElementById('sky');
 
-    backgroundContext.drawImage(backgr, 0, 0, 1200, 650);
+    //backgroundContext.drawImage(backgr, 0, 0, 1200, 650);
 
     playerCanvas.width = WIDTH;
     playerCanvas.height = HEIGHT;
@@ -193,8 +193,8 @@ window.addEventListener('load', function () {
             }
         }
     }
-    
-    
+
+
     var currentPikachuSprite = pikachuRunningSprite;
     var counter = 0;
 
@@ -212,13 +212,11 @@ window.addEventListener('load', function () {
         currentPikachuSprite
             .render(pikachuBody.coordinates, lastPikachuCoordinates)
             .update();
-
-        // update, draw, move all pokeballs
+        
         for (i = 0; i < pokeballs.length; i += 1) {
 
             pokeball = pokeballs[i];
-
-            // if out of game field, remove pokeball
+            
             if (pokeball.body.coordinates.x < -pokeball.body.width) {
                 pokeballs.splice(i, 1);
                 i -= 1;
@@ -239,7 +237,6 @@ window.addEventListener('load', function () {
                     .update();
                 counter += 1;
                 if(counter > 25){
-                    counter = 0;
                     return;
                 }
                 // document.getElementById('game-over-song').play();

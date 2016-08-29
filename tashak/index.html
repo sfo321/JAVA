@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="calendar"></div>
+<script src="handlebars-v4.0.5.js"></script>
+<script src="script.js"></script>
+<script id="calendar-template" type="text/x-handlebars-template">
+    <div class="events-calendar">
+        <h2 class="header">
+            Appointments for <span class="month">{{month}}</span> <span class="year">{{year}}</span>
+        </h2>
+        {{#each days}}
+        <div class="col-date">
+            <div class="date">{{day}}</div>
+            <div class="events">
+        {{#each events}}
+                {{#if comment}}
+                <div class="event {{importance}}" title="{{comment}}">
+                {{/if}}
+                   {{#unless comment}}
+                   <div class="event {{importance}}">
+                    {{/unless}}
+                    {{#if title}}
+                    <div class="title">{{title}}</div>
+                    {{/if}}
+                    {{#unless title}}
+                    <div class="title">Free slot</div>
+                    {{/unless}}
+                    {{#if time}}
+                    <span class="time">at: {{time}}</span>
+                    {{/if}}
+                </div>
+                {{/each}}
+                </div>
+             </div>
+        {{/each}}
+        </div>
+     </div>
+</script>
+
+</body>
+</html>
