@@ -2,12 +2,12 @@
 
 function solve() {
     return function(selector, initialSuggestions) {
-        var root = document.querySelector(selector);
-        var input = root.getElementsByClassName('tb-pattern')[0];
-        var button = root.getElementsByClassName('btn-add')[0];
-        var ul = root.getElementsByClassName('suggestions-list')[0];
-
-        var lia = document.createElement('li');
+        var root = document.querySelector(selector),
+        input = root.getElementsByClassName('tb-pattern')[0],
+        button = root.getElementsByClassName('btn-add')[0],
+        ul = root.getElementsByClassName('suggestions-list')[0],
+        lia = document.createElement('li');
+        
         lia.className = 'suggestion';
         lia.style.display = 'none';
         var aa = document.createElement('a');
@@ -51,7 +51,7 @@ function solve() {
                     currentLi.style.display = 'none';
                 }
             }
-        }, false)
+        }, false);
 
         function check(text, children){
             for (var i = 0, len = children.length; i < len; i += 1) {
@@ -62,7 +62,7 @@ function solve() {
                 }
             }
             return true;
-        };
+        }
 
         button.addEventListener('click', function(ev){
             if(ev.target.className === 'btn-add') {
@@ -81,13 +81,12 @@ function solve() {
                 }
             }
 
-        }, false)
+        }, false);
 
         ul.addEventListener('click', function(ev){
 
             if(ev.target.className === 'suggestion-link'){
-                var newtext = ev.target.innerHTML;
-                input.value = newtext;
+                input.value = ev.target.innerHTML;
                 ev.preventDefault();
             }
         }, false);
