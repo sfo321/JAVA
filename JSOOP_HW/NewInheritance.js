@@ -95,3 +95,4 @@ per.walk();
 
 pro.toString();
 pro.walk();
+console.log(pro.constructor.name);
